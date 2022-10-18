@@ -4,175 +4,148 @@
         <a href="https://aftab.netlify.app"><img src="https://raw.githubusercontent.com/aftabmk/date-Formater/master/img/img.png" /></a><br>
     </b>
 </h1>
-<p align="center">This module is used to generate date and epoch with specific format like 04/07/1995. The aim of this package is to simplify the date-format to readily usable syntax with no further alteration.</p>
+<p align="center">This package is used to create dynamic cookie value and authenticate the created cookie to prevent external tampering.This is simple and plain way to create advanced binaary based cookie with no effort.It primarly targeted for beginner coders.</p>
 
 ## Installing
 
 Using npm:
 
 ```bash
-$ npm install @aftabmk/date
+$ npm i @aftabmk/cookie
 ```
 
 Using bower:
 
 ```bash
-$ bower install @aftabmk/date
+$ bower install @aftabmk/cookie
 ```
 
 Using yarn:
 
 ```bash
-$ yarn add @aftabmk/date
+$ yarn add @aftabmk/cookie
 ```
 
 Using pnpm:
 
 ```bash
-$ pnpm add @aftabmk/date
+$ pnpm add @aftabmk/cookie
 ```
 
 ## Documentation
 
 ## Functions
-*getDate*
-```js
-const date : getDate(number,number,number,boolean,string)
+*setCookie*
+```ts
+const cookie : setCookie(String,String,Number,Number)
 ```
-*getDateNow*
-```js
-const dateNow : getDateNow(number,number,number,boolean,string)
+*filterCookie*
+```ts
+const bool : filterCookie(String,Number,String)
 ```
-*getEpoch*
-```js
-const epoch : getEpoch(string,string)
-```
-*getEpochNow*
-```js
-const epoch : getEpoch(null)
-```
-# getDate inputs
-*Day(week ago)*
-```js
-const dateNow = getDate(7,0,0,true,'forwardSlash')
-// current 10/05/2022
-// result 03/05/2022
-// logic day = 10-7 = 2
-```
-*Month(Quarter ago)*
-```js
-const dateNow = getDate(0,3,0,true,'forwardSlash')
-// current 02/12/22
-// result 02/9/22
-// logic day = 12-3 = 9
-```
-*Year(decade ago)*
-```js
-const dateNow = getDate(0,0,10,true,'forwardSlash')
-// current 02/12/22
-// result 02/9/12
-// logic day = 22-10 = 12
-```
-*True*
-```js
-const dateNow = getDate(0,0,0,true,'forwardSlash')
-// result 01/01/22
-```
-*False*
-```js
-const dateNow = getDate(0,0,0,false,'forwardSlash')
-// result 01/01/2022
-```
-# Examples of input symbols
 
-*Ampersand(&)*
+# Example
+# setCookie inputs
+*Name*
 ```js
-const dateNow = getDate(0,0,0,false,'ampersand')
-// result 01&01&2022
+const cookie = setCookie('kizhissery','-',7,5)
+/*{
+    cookie:'kizhissery-101010000.........
+    here input is Kizhissery
+}*/
 ```
-*Apostrophe(')*
+*Symbol*
 ```js
-const dateNow = getDate(0,0,0,false,'apostrophe')
-// result 01'01'2022
+const cookie = setCookie('kizhissery','=',7,20)
+/*{
+    cookie:'kizhissery-101010000.........
+    here input is Kizhissery
+}*/
 ```
-*Asterisk(*)*
+*Key*
 ```js
-const dateNow = getDate(0,0,0,false,'asterisk')
-// result 01*01*2022
+const cookie = setCookie('aftab','-',7,20)
+/*{
+    cookie:'kizhissery-101010000.........
+    here secret key is 7, it can be any +ve integer Only, decimal and -ve integer will not function
+}*/
 ```
-*AtSign(@)*
+*Repeat*
 ```js
-const dateNow = getDate(0,0,0,false,'atSign')
-// result 01@01@2022
+const cookie = setCookie('aftab','-',7,5)
+/*{
+    cookie:'kizhissery-101010000.........
+    here length of cookie detemined length here it is 5
+    cookie:'kizhissery-101010000.........*4
+    here length of cookie detemined length here it is 20, if you need bigger cookie value , should be more than 5 and less than 20 for optimal result
+}*/
 ```
-*Dot(.)*
+*result*
 ```js
-const dateNow = getDate(0,0,0,false,'dot')
-// result 01.01.2022
+const cookie = setCookie(name,symbol,key,length)
+/*{
+    cookie:'kizhissery-101010000.........
+    here length of cookie detemined length here it is 5
+    cookie:'kizhissery-101010000.........*4
+    here length of cookie detemined length here it is 20, if you need bigger cookie value , should be more than 5 and less than 20 for optimal result
+}*/
 ```
-*Dollar($)*
+# filterCookie inputs
+
+*result*
 ```js
-const dateNow = getDate(0,0,0,false,'dollar')
-// result 01$01$2022
-``` 
-*Hyphen(-)*
-```js
-const dateNow = getDate(0,0,0,false,'hyphen')
-// result 01-01-2022
-``` 
-*UnderScore(_)*
-```js
-const dateNow = getDate(0,0,0,false,'underScore')
-// result 01_01_2022
-``` 
-*Exclamation(!)*
-```js
-const dateNow = getDate(0,0,0,false,'exclamation')
-// result 01!01!2022
-```
-*Hash(#)*
-```js
-const dateNow = getDate(0,0,0,false,'hash')
-// result 01#01#2022
-```
-*Quotation(")*
-```js
-const dateNow = getDate(0,0,0,false,'quotation')
-// result 01"01"2022
-```
-*ForwardSlash(/)*
-```js
-const dateNow = getDate(0,0,0,false,'forwardSlash')
-// result 01/01/2022
+const filter = filterCookie(name,key,cookie)
+/*{
+    cookie is the the derived value of the above function "setCookie" which is passed to filter function.
+    Note the name and key of setCookie must match the inputs of filterCookie.
+}*/
 ```
 
 # Starter Code
 *getDate function*
 ```js
-const { getDate } = require('@aftabmk/date');
-const date = getDate(0,0,0,false,'forwardSlash')
-// date now in the format dd/mm/yyyy
-// result 01/01/2022
-```
-*getDateNow function*
-```js
-const { getDateNow } = require('@aftabmk/date');
-const date = getDateNow(false,'forwardSlash')
-// date now in the format dd/mm/yyyy
-// result 01/01/2022(Today date)
-```
-*getEpoch function*
-```js
-const { getEpoch } = require('@aftabmk/date');
-const date = getEpoch('14/07/2002','12:30')
-// date format dd/mm/yyyy
-// time format hh:mm
-// result 1026630000
-```
-*getEpochNow function*
-```js
-const { getEpochNow } = require('@aftabmk/date');
-const date = getEpochNow()
-// no input
-// result 1613889000000 in sec
-```
+// imports
+const express = require("express");
+const cookieParser = require('cookie-parser')
+const { setCookie , filterCookie } = require('@aftabmk/cookie');
+//setting up express
+app.use(ex.json())
+app.use(ex.urlencoded({ extended: true }))
+//auth
+function Auth(req, res, next)
+{
+    if(!req.headers.cookie) return res.status(403).send('403 access forbidden')
+    if(filterCookie('user',77,req.headers.cookie))
+    // name was set to user and key to 77 at setCookie function
+    // filterCookie return true
+    // so it will lead to next() , if authentication fails it will send 403 to unauthorised api/json scrapper
+    // for true return /api route and access the data from those route
+        {
+            next();return
+        }
+        else
+        {
+            res.status(401).send([{'status':401,'description':'Invalid certificate'}]);
+        }
+}
+// the user in front end redirect to setCookie end point to initialise setCookie function to set cookie inside cookie-parser option
+app.get(`/setCookie`, async (req, res) => 
+{ try 
+    { 
+        return res.status(202)
+        .cookieParser( setCookie('user','=',77,20) , cookieOptions)
+        // here name is user , symbol is '=' , secret key = 77 and length = 20
+        // cookieOption { sameSite: 'strict', path: '/', expires: new Date(Date.now() + 900000), httpOnly: true }
+        // IMPORTANT htmlonly to true
+        .send('User cookie is  set') 
+    } 
+    catch (err) 
+    { 
+        return res.status(500).json({ err: err.toString() }) 
+    } })
+
+// Express router import whereapi are stored hence we introduce Auth middleware , to prevent unwanted scrapers
+app.use('/api',Auth,api)
+
+
+app.listen(port, () => { console.log(`running on port http://localhost:5000`) })
