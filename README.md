@@ -102,7 +102,16 @@ const filter = filterCookie(name,key,cookie)
 ```
 
 # Starter Code
-*getDate function*
+*example 1*
+```js
+const { setCookie , filterCookie } = require('@aftabmk/cookie')
+
+const cookie = setCookie('aftab','=',30,5)
+const filter = filterCookie('aftab',30,cookie)
+
+console.log({cookie},{filter})
+```
+*example 2*
 ```js
 // imports
 const express = require("express");
@@ -149,3 +158,4 @@ app.use('/api',Auth,api)
 
 
 app.listen(port, () => { console.log(`running on port http://localhost:5000`) })
+```
