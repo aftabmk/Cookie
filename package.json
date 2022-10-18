@@ -1,6 +1,6 @@
 {
   "name": "@aftabmk/cookie",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package is used to create dynamic cookie value and authenticate the created cookie to prevent external tampering.This is simple and plain way to create advanced binaary based cookie with no effort.It primarly targeted for beginner coders",
   "main": "index.js",
   "scripts": {
