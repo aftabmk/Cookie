@@ -1,7 +1,7 @@
 <h1 align="center">
-    Date
+    Cookie generator
    <b>
-        <a href="https://aftab.netlify.app"><img src="https://raw.githubusercontent.com/aftabmk/date-Formater/master/img/img.png" /></a><br>
+        <a href="https://aftab.netlify.app"><img src="https://raw.githubusercontent.com/aftabmk/Cookie/master/image/cookie.jpg" /></a><br>
     </b>
 </h1>
 <p align="center">This package is used to create dynamic cookie value and authenticate the created cookie to prevent external tampering.This is simple and plain way to create advanced binaary based cookie with no effort.It primarly targeted for beginner coders.</p>
